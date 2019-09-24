@@ -1,0 +1,1813 @@
+package com.ecnu.starcode;
+
+import com.alibaba.fastjson.JSON;
+import com.ecnu.starcode.core.StarcodeBase;
+import com.ecnu.starcode.core.StarcodeStub;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import org.apache.log4j.Logger;
+
+public class Starcode extends StarcodeBase {
+	public class User {
+		private String name;
+		private String wechat;
+		private String openid;
+		private String point;
+		private String evaluation;
+		private String times;
+		private String myfavorid; // 收藏
+		// 我发布的申请
+		private String mypublish;// 我的发布
+		private String needConfirm; // 待确认
+		private String needSerShare; // 待分享
+		private String needSerPay; // 待支付
+		private String publishfinish; // 已完成
+		// 我申请的分享
+		private String myapply; // 已申请
+		private String needAppshare; // 待分享
+		private String needAppPay;// 待支付
+		private String applyfinish;// 已完成
+
+		private String headImage;// 头像
+		private String frozenPoint;// 已冻结的积分
+
+		/**
+		 * @return the name
+		 */
+		public String getName() {
+			return name;
+		}
+
+		/**
+		 * @param name
+		 *            the name to set
+		 */
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		/**
+		 * @return the wechat
+		 */
+		public String getWechat() {
+			return wechat;
+		}
+
+		/**
+		 * @param wechat
+		 *            the wechat to set
+		 */
+		public void setWechat(String wechat) {
+			this.wechat = wechat;
+		}
+
+		/**
+		 * @return the openid
+		 */
+		public String getOpenid() {
+			return openid;
+		}
+
+		/**
+		 * @param openid
+		 *            the openid to set
+		 */
+		public void setOpenid(String openid) {
+			this.openid = openid;
+		}
+
+		/**
+		 * @return the point
+		 */
+		public String getPoint() {
+			return point;
+		}
+
+		/**
+		 * @param point
+		 *            the point to set
+		 */
+		public void setPoint(String point) {
+			this.point = point;
+		}
+
+		/**
+		 * @return the evaluation
+		 */
+		public String getEvaluation() {
+			return evaluation;
+		}
+
+		/**
+		 * @param evaluation
+		 *            the evaluation to set
+		 */
+		public void setEvaluation(String evaluation) {
+			this.evaluation = evaluation;
+		}
+
+		/**
+		 * @return the times
+		 */
+		public String getTimes() {
+			return times;
+		}
+
+		/**
+		 * @param times
+		 *            the times to set
+		 */
+		public void setTimes(String times) {
+			this.times = times;
+		}
+
+		/**
+		 * @return the myfavorid
+		 */
+		public String getMyfavorid() {
+			return myfavorid;
+		}
+
+		/**
+		 * @param myfavorid
+		 *            the myfavorid to set
+		 */
+		public void setMyfavorid(String myfavorid) {
+			this.myfavorid = myfavorid;
+		}
+
+		/**
+		 * @return the mypublish
+		 */
+		public String getMypublish() {
+			return mypublish;
+		}
+
+		/**
+		 * @param mypublish
+		 *            the mypublish to set
+		 */
+		public void setMypublish(String mypublish) {
+			this.mypublish = mypublish;
+		}
+
+		/**
+		 * @return the needConfirm
+		 */
+		public String getNeedConfirm() {
+			return needConfirm;
+		}
+
+		/**
+		 * @param needConfirm
+		 *            the needConfirm to set
+		 */
+		public void setNeedConfirm(String needConfirm) {
+			this.needConfirm = needConfirm;
+		}
+
+		/**
+		 * @return the needShare
+		 */
+
+		/**
+		 * @return the needSerPay
+		 */
+		public String getNeedSerPay() {
+			return needSerPay;
+		}
+
+		/**
+		 * @param needSerPay
+		 *            the needSerPay to set
+		 */
+		public void setNeedSerPay(String needSerPay) {
+			this.needSerPay = needSerPay;
+		}
+
+		/**
+		 * @return the publishfinish
+		 */
+		public String getPublishfinish() {
+			return publishfinish;
+		}
+
+		/**
+		 * @param publishfinish
+		 *            the publishfinish to set
+		 */
+		public void setPublishfinish(String publishfinish) {
+			this.publishfinish = publishfinish;
+		}
+
+		/**
+		 * @return the myapply
+		 */
+		public String getMyapply() {
+			return myapply;
+		}
+
+		/**
+		 * @param myapply
+		 *            the myapply to set
+		 */
+		public void setMyapply(String myapply) {
+			this.myapply = myapply;
+		}
+
+		/**
+		 * @return the needshare
+		 */
+
+		/**
+		 * @return the needAppPay
+		 */
+		public String getNeedAppPay() {
+			return needAppPay;
+		}
+
+		/**
+		 * @param needAppPay
+		 *            the needAppPay to set
+		 */
+		public void setNeedAppPay(String needAppPay) {
+			this.needAppPay = needAppPay;
+		}
+
+		/**
+		 * @return the applyfinish
+		 */
+		public String getApplyfinish() {
+			return applyfinish;
+		}
+
+		/**
+		 * @param applyfinish
+		 *            the applyfinish to set
+		 */
+		public void setApplyfinish(String applyfinish) {
+			this.applyfinish = applyfinish;
+		}
+
+		/**
+		 * @return the needSerShare
+		 */
+		public String getNeedSerShare() {
+			return needSerShare;
+		}
+
+		/**
+		 * @param needSerShare
+		 *            the needSerShare to set
+		 */
+		public void setNeedSerShare(String needSerShare) {
+			this.needSerShare = needSerShare;
+		}
+
+		/**
+		 * @return the needAppshare
+		 */
+		public String getNeedAppshare() {
+			return needAppshare;
+		}
+
+		/**
+		 * @param needAppshare
+		 *            the needAppshare to set
+		 */
+		public void setNeedAppshare(String needAppshare) {
+			this.needAppshare = needAppshare;
+		}
+
+		public User(String name, String wechat, String openid, String point, String evaluation, String times,
+				String headImage, String frozenPoint) {
+			super();
+			this.name = name;
+			this.wechat = wechat;
+			this.openid = openid;
+			this.point = point;
+			this.evaluation = evaluation;
+			this.times = times;
+			this.headImage = headImage;
+			this.frozenPoint = frozenPoint;
+		}
+
+		public User(String name, String wechat, String openid, String point, String evaluation, String times,
+				String myfavorid, String mypublish, String needConfirm, String needSerShare, String needSerPay,
+				String publishfinish, String myapply, String needAppshare, String needAppPay, String applyfinish,
+				String headImage, String frozenPoint) {
+			super();
+			this.name = name;
+			this.wechat = wechat;
+			this.openid = openid;
+			this.point = point;
+			this.evaluation = evaluation;
+			this.times = times;
+			this.myfavorid = myfavorid;
+			this.mypublish = mypublish;
+			this.needConfirm = needConfirm;
+			this.needSerShare = needSerShare;
+			this.needSerPay = needSerPay;
+			this.publishfinish = publishfinish;
+			this.myapply = myapply;
+			this.needAppshare = needAppshare;
+			this.needAppPay = needAppPay;
+			this.applyfinish = applyfinish;
+			this.headImage = headImage;
+			this.frozenPoint = frozenPoint;
+		}
+
+		/**
+		 * @return the headImage
+		 */
+		public String getHeadImage() {
+			return headImage;
+		}
+
+		/**
+		 * @param headImage
+		 *            the headImage to set
+		 */
+		public void setHeadImage(String headImage) {
+			this.headImage = headImage;
+		}
+
+		/**
+		 * @return the frozenPoint
+		 */
+		public String getFrozenPoint() {
+			return frozenPoint;
+		}
+
+		/**
+		 * @param frozenPoint
+		 *            the frozenPoint to set
+		 */
+		public void setFrozenPoint(String frozenPoint) {
+			this.frozenPoint = frozenPoint;
+		}
+	}
+
+	public class Order {
+		private String applyuserid;
+		private String serviceuserid;
+		private String publishid;
+		private String begintime;
+		private String endtime;
+		private String estimateReturntime;
+		private String status;// 改为orderID
+		private String reason;
+		private String applyuserRating;
+		private String applyuserComment;
+		private String serviceuserRating;
+		private String serviceuserComment;
+		private String txpoint;
+		private String flag; // ０为正常交易，１为拒绝交易（交易取消）,2是未归还，3是归还余额不足
+
+		// 申请借商品的构造函数
+		public Order(String applyuserid, String serviceuserid, String publishid, String estimateReturntime,
+				String status, String reason) {
+			super();
+			this.applyuserid = applyuserid;
+			this.serviceuserid = serviceuserid;
+			this.publishid = publishid;
+			this.estimateReturntime = estimateReturntime;
+			this.status = status;
+			this.reason = reason;
+		}
+
+		public Order(String applyuserid, String serviceuserid, String publishid, String begintime, String endtime,
+				String estimateReturntime, String status, String reason, String applyuserRating,
+				String applyuserComment, String serviceuserRating, String serviceuserComment, String txpoint,
+				String flag) {
+			super();
+			this.applyuserid = applyuserid;
+			this.serviceuserid = serviceuserid;
+			this.publishid = publishid;
+			this.begintime = begintime;
+			this.endtime = endtime;
+			this.estimateReturntime = estimateReturntime;
+			this.status = status;
+			this.reason = reason;
+			this.applyuserRating = applyuserRating;
+			this.applyuserComment = applyuserComment;
+			this.serviceuserRating = serviceuserRating;
+			this.serviceuserComment = serviceuserComment;
+			this.txpoint = txpoint;
+			this.flag = flag;
+		}
+
+		/**
+		 * @return the applyuserid
+		 */
+		public String getApplyuserid() {
+			return applyuserid;
+		}
+
+		/**
+		 * @param applyuserid
+		 *            the applyuserid to set
+		 */
+		public void setApplyuserid(String applyuserid) {
+			this.applyuserid = applyuserid;
+		}
+
+		/**
+		 * @return the serviceuserid
+		 */
+		public String getServiceuserid() {
+			return serviceuserid;
+		}
+
+		/**
+		 * @param serviceuserid
+		 *            the serviceuserid to set
+		 */
+		public void setServiceuserid(String serviceuserid) {
+			this.serviceuserid = serviceuserid;
+		}
+
+		/**
+		 * @return the publishid
+		 */
+		public String getPublishid() {
+			return publishid;
+		}
+
+		/**
+		 * @param publishid
+		 *            the publishid to set
+		 */
+		public void setPublishid(String publishid) {
+			this.publishid = publishid;
+		}
+
+		/**
+		 * @return the begintime
+		 */
+		public String getBegintime() {
+			return begintime;
+		}
+
+		/**
+		 * @param begintime
+		 *            the begintime to set
+		 */
+		public void setBegintime(String begintime) {
+			this.begintime = begintime;
+		}
+
+		/**
+		 * @return the endtime
+		 */
+		public String getEndtime() {
+			return endtime;
+		}
+
+		/**
+		 * @param endtime
+		 *            the endtime to set
+		 */
+		public void setEndtime(String endtime) {
+			this.endtime = endtime;
+		}
+
+		/**
+		 * @return the status
+		 */
+		public String getStatus() {
+			return status;
+		}
+
+		/**
+		 * @param status
+		 *            the status to set
+		 */
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		/**
+		 * @return the reason
+		 */
+		public String getReason() {
+			return reason;
+		}
+
+		/**
+		 * @param reason
+		 *            the reason to set
+		 */
+		public void setReason(String reason) {
+			this.reason = reason;
+		}
+
+		/**
+		 * @return the applyuserRating
+		 */
+		public String getApplyuserRating() {
+			return applyuserRating;
+		}
+
+		/**
+		 * @param applyuserRating
+		 *            the applyuserRating to set
+		 */
+		public void setApplyuserRating(String applyuserRating) {
+			this.applyuserRating = applyuserRating;
+		}
+
+		/**
+		 * @return the applyuserComment
+		 */
+		public String getApplyuserComment() {
+			return applyuserComment;
+		}
+
+		/**
+		 * @param applyuserComment
+		 *            the applyuserComment to set
+		 */
+		public void setApplyuserComment(String applyuserComment) {
+			this.applyuserComment = applyuserComment;
+		}
+
+		/**
+		 * @return the serviceuserRating
+		 */
+		public String getServiceuserRating() {
+			return serviceuserRating;
+		}
+
+		/**
+		 * @param serviceuserRating
+		 *            the serviceuserRating to set
+		 */
+		public void setServiceuserRating(String serviceuserRating) {
+			this.serviceuserRating = serviceuserRating;
+		}
+
+		/**
+		 * @return the serviceuserComment
+		 */
+		public String getServiceuserComment() {
+			return serviceuserComment;
+		}
+
+		/**
+		 * @param serviceuserComment
+		 *            the serviceuserComment to set
+		 */
+		public void setServiceuserComment(String serviceuserComment) {
+			this.serviceuserComment = serviceuserComment;
+		}
+
+		/**
+		 * @return the estimateReturntime
+		 */
+		public String getEstimateReturntime() {
+			return estimateReturntime;
+		}
+
+		/**
+		 * @param estimateReturntime
+		 *            the estimateReturntime to set
+		 */
+		public void setEstimateReturntime(String estimateReturntime) {
+			this.estimateReturntime = estimateReturntime;
+		}
+
+		/**
+		 * @return the flag
+		 */
+		public String getFlag() {
+			return flag;
+		}
+
+		/**
+		 * @param flag
+		 *            the flag to set
+		 */
+		public void setFlag(String flag) {
+			this.flag = flag;
+		}
+
+		/**
+		 * @return the txpoint
+		 */
+		public String getTxpoint() {
+			return txpoint;
+		}
+
+		/**
+		 * @param txpoint
+		 *            the txpoint to set
+		 */
+		public void setTxpoint(String txpoint) {
+			this.txpoint = txpoint;
+		}
+	}
+
+	public class Publish {
+		private String userid;
+		private String type;
+		private String description;
+		private String price;
+		private String address;
+		private String endDate;
+		private String deposit;
+		private String theme;
+		private String img1;
+		private String img2;
+		private String img3;
+		private String publishStatus; // 改为publishID
+
+		public Publish(String userid, String type, String description, String price, String address, String endDate,
+				String deposit, String theme, String img1, String img2, String img3, String publishStatus) {
+			super();
+			this.userid = userid;
+			this.type = type;
+			this.description = description;
+			this.price = price;
+			this.address = address;
+			this.endDate = endDate;
+			this.deposit = deposit;
+			this.theme = theme;
+			this.img1 = img1;
+			this.img2 = img2;
+			this.img3 = img3;
+			this.publishStatus = publishStatus;
+		}
+
+		/**
+		 * @return the userid
+		 */
+		public String getUserid() {
+			return userid;
+		}
+
+		/**
+		 * @param userid
+		 *            the userid to set
+		 */
+		public void setUserid(String userid) {
+			this.userid = userid;
+		}
+
+		/**
+		 * @return the type
+		 */
+		public String getType() {
+			return type;
+		}
+
+		/**
+		 * @param type
+		 *            the type to set
+		 */
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		/**
+		 * @return the description
+		 */
+		public String getDescription() {
+			return description;
+		}
+
+		/**
+		 * @param description
+		 *            the description to set
+		 */
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		/**
+		 * @return the price
+		 */
+		public String getPrice() {
+			return price;
+		}
+
+		/**
+		 * @param price
+		 *            the price to set
+		 */
+		public void setPrice(String price) {
+			this.price = price;
+		}
+
+		/**
+		 * @return the address
+		 */
+		public String getAddress() {
+			return address;
+		}
+
+		/**
+		 * @param address
+		 *            the address to set
+		 */
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		/**
+		 * @return the endDate
+		 */
+		public String getEndDate() {
+			return endDate;
+		}
+
+		/**
+		 * @param endDate
+		 *            the endDate to set
+		 */
+		public void setEndDate(String endDate) {
+			this.endDate = endDate;
+		}
+
+		/**
+		 * @return the deposit
+		 */
+		public String getDeposit() {
+			return deposit;
+		}
+
+		/**
+		 * @param deposit
+		 *            the deposit to set
+		 */
+		public void setDeposit(String deposit) {
+			this.deposit = deposit;
+		}
+
+		/**
+		 * @return the theme
+		 */
+		public String getTheme() {
+			return theme;
+		}
+
+		/**
+		 * @param theme
+		 *            the theme to set
+		 */
+		public void setTheme(String theme) {
+			this.theme = theme;
+		}
+
+		/**
+		 * @return the img1
+		 */
+		public String getImg1() {
+			return img1;
+		}
+
+		/**
+		 * @param img1
+		 *            the img1 to set
+		 */
+		public void setImg1(String img1) {
+			this.img1 = img1;
+		}
+
+		/**
+		 * @return the img2
+		 */
+		public String getImg2() {
+			return img2;
+		}
+
+		/**
+		 * @param img2
+		 *            the img2 to set
+		 */
+		public void setImg2(String img2) {
+			this.img2 = img2;
+		}
+
+		/**
+		 * @return the img3
+		 */
+		public String getImg3() {
+			return img3;
+		}
+
+		/**
+		 * @param img3
+		 *            the img3 to set
+		 */
+		public void setImg3(String img3) {
+			this.img3 = img3;
+		}
+
+		/**
+		 * @return the publishStatus
+		 */
+		public String getPublishStatus() {
+			return publishStatus;
+		}
+
+		/**
+		 * @param publishStatus
+		 *            the publishStatus to set
+		 */
+		public void setPublishStatus(String publishStatus) {
+			this.publishStatus = publishStatus;
+		}
+	}
+
+	// 删除多余逗号
+	public String remove(String str) {
+		if (str.equals("")) {
+			return str;
+		} else {
+			str = str.replaceAll("[',']+", ",");
+			if (str.substring(0, 1).equals(",")) {
+				str = str.substring(1, str.length());
+			}
+			if (str.substring(str.length() - 1, str.length()).equals(",")) {
+				str = str.substring(0, str.length() - 1);
+			}
+			return str;
+		}
+	}
+
+	// 登录判断
+	public void login(StarcodeStub stub, String[] args) {
+		if (stub.getState("openid").equals("")) {
+
+			stub.Success("needRegister");
+		} else {
+			String openid = stub.getState("openid");
+			String[] array = openid.split(",");
+			for (int i = 0; i < array.length; i++) {
+				if (array[i].equals(args[0].trim())) {
+					stub.Success("alreadyRegister");
+					break;
+				} else {
+					stub.Success("needRegister");
+				}
+			}
+		}
+	}
+
+	// 初始化账户
+	public void init(StarcodeStub stub, String[] args) {
+		// String name, String wechat, String openid, String point, String
+		// evaluation, String times,String myfavorid
+		String[] array = args[1].split(",");
+		User user = new User(array[0], array[1], array[2], array[3], array[4], array[5], "", "", "", "", "", "", "", "",
+				"", "", array[6], array[7]);
+		String str = JSON.toJSONString(user);
+		stub.putState(args[0].trim(), str);
+		String openid = stub.getState("openid");
+		if (openid.equals("") || openid.equals(" ")) {
+			stub.putState("openid", array[2]);
+		} else {
+			stub.putState("openid", openid + "," + array[2]);
+		}
+
+		stub.Success("initsuccess");
+	}
+
+	// A 发布商品
+	public void publishgoods(StarcodeStub stub, String[] args) {
+		Publish mypublish = new Publish(args[1].trim(), args[11].trim(), args[3].trim(), args[8].trim(), args[2].trim(),
+				args[4].trim(), args[10].trim(), args[9].trim(), args[5].trim(), args[6].trim(), args[7].trim(),
+				args[12].trim());
+		String str = JSON.toJSONString(mypublish);
+		stub.putState(args[0].trim(), str);
+		String struser = stub.getState(args[1].trim());
+		User user = JSON.parseObject(struser, User.class);
+		if (user.getMypublish().equals(" ") || user.getMypublish().equals("")) {
+			user.setMypublish(args[0].trim());
+		} else {
+			String id = user.getMypublish() + "," + args[0].trim();
+			user.setMypublish(id);
+		}
+		String strUser = JSON.toJSONString(user);
+		stub.putState(args[1].trim(), strUser);
+		// type: array[10]
+		// 建立二级索引
+		if (stub.getState(args[11].trim()).equals("")) {
+			stub.putState(args[11].trim(), args[0].trim());
+		} else {
+			String strPublishid = stub.getState(args[11].trim());
+			stub.putState(args[11].trim(), strPublishid + "," + args[0].trim());
+		}
+		stub.Success("publishsuccess");
+	}
+
+	// 未被申请的发布 发布者可删除
+	public void deleteUnPublish(StarcodeStub stub, String[] args) {
+		String myuser = stub.getState(args[0].trim());
+		String mypublish = stub.getState(args[1].trim());
+		User ServiceUser = JSON.parseObject(myuser, User.class);
+		Publish publish = JSON.parseObject(mypublish, Publish.class);
+		String allPublishid = ServiceUser.getMypublish();
+		allPublishid = allPublishid.replaceAll(args[1].trim(), " ");
+		String id = remove(allPublishid);
+		ServiceUser.setMypublish(id);
+		String user = JSON.toJSONString(ServiceUser);
+		stub.putState(args[0].trim(), user);
+		// 删除二级索引
+		String idType = stub.getState(publish.getType().trim());
+		idType = idType.replaceAll(args[1].trim(), " ");
+		String myidType = remove(idType);
+		stub.putState(publish.getType().trim(), myidType);
+		stub.Success("deletesuccess");
+	}
+
+	// B申请向A借商品G
+	public void applyBorrow(StarcodeStub stub, String[] args) {
+		// "applyuserid","serviceuserid","publishid","estimateReturntime","status已申请","reason"
+		// Order myOrder=new Order(array[0], array[1], array[2], array[3],
+		// array[4],array[5],array[6],array[7],array[8],array[9],array[10],array[11]);
+		Order myOrder = new Order(args[1].trim(), args[2].trim(), args[3].trim(), args[4].trim(), args[5].trim(),
+				args[6].trim());
+		String str = JSON.toJSONString(myOrder);
+		stub.putState(args[0].trim(), str);
+		// 添加A的待确认
+		String getServiceUser = stub.getState(args[2].trim());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		if (ServiceUser.getNeedConfirm().equals(" ") || ServiceUser.getNeedConfirm().equals("")) {
+			ServiceUser.setNeedConfirm(args[0].trim());
+		} else {
+			String serId = ServiceUser.getNeedConfirm() + "," + args[0].trim();
+			ServiceUser.setNeedConfirm(serId);
+		}
+		String strServiceUser = JSON.toJSONString(ServiceUser);
+		stub.putState(args[2].trim(), strServiceUser);
+		// 添加B的申请记录
+		String getApplyUser = stub.getState(args[1].trim());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+
+		if (ApplyUser.getMyapply().equals(" ") || ApplyUser.getMyapply().equals("")) {
+			ApplyUser.setMyapply(myOrder.getStatus());
+		} else {
+			String appId = ApplyUser.getMyapply() + "," + myOrder.getStatus();
+			ApplyUser.setMyapply(appId);
+		}
+		String strApplyUser = JSON.toJSONString(ApplyUser);
+		stub.putState(args[1].trim(), strApplyUser);
+		stub.Success("applysuccess");
+	}
+
+	// A拒绝B的订单
+	public void refuseOrder(StarcodeStub stub, String[] args) {
+		String str = stub.getState(args[1].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		// Ａ删除待确认
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		String needConfirm = myUser.getNeedConfirm();
+		needConfirm = needConfirm.replaceAll(args[1].trim(), " ");
+		String needConfirmid = remove(needConfirm);
+		myUser.setNeedConfirm(needConfirmid);
+		// 添加Ａ的已完成
+		if (myUser.getPublishfinish().equals(" ") || myUser.getPublishfinish().equals("")) {
+			myUser.setPublishfinish(args[1].trim());
+		} else {
+			String serId = myUser.getPublishfinish() + "," + args[1].trim();
+			myUser.setPublishfinish(serId);
+		}
+		String strMyUser = JSON.toJSONString(myUser);
+		stub.putState(args[0].trim(), strMyUser);
+
+		// 删除Ｂ的已申请
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+		String myapply = ApplyUser.getMyapply();
+		myapply = myapply.replaceAll(args[1].trim(), " ");
+		String myapplyid = remove(myapply);
+		ApplyUser.setMyapply(myapplyid);
+		// 添加B的已完成
+		if (ApplyUser.getApplyfinish().equals(" ") || ApplyUser.getApplyfinish().equals("")) {
+			ApplyUser.setApplyfinish(args[1].trim());
+		} else {
+			String applyfinishID = ApplyUser.getApplyfinish() + "," + args[1].trim();
+			ApplyUser.setApplyfinish(applyfinishID);
+		}
+		String strApplyUser = JSON.toJSONString(ApplyUser);
+		stub.putState(getApplyUser, strApplyUser);
+		// 将Order 属性的flag设为１ 标记为交易取消
+		myOrder.setFlag("1");
+		String strMyorder = JSON.toJSONString(myOrder);
+		stub.putState(args[1].trim(), strMyorder);
+		stub.Success("refuseSuccess");
+	}
+
+	// A确认Ｂ的订单
+	public void confirmBorrow(StarcodeStub stub, String[] args) {
+		String str = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		myOrder.setFlag("0");
+		String strMyorder = JSON.toJSONString(myOrder);
+		stub.putState(args[0].trim(), strMyorder);
+		// 将确认的商品从publish记录的PublishStatus由0改为１
+		String pubishstr = stub.getState(args[1].trim());
+		Publish myPublish = JSON.parseObject(pubishstr, Publish.class);
+
+		String strMypublish = JSON.toJSONString(myPublish);
+		stub.putState(args[1].trim(), strMypublish);
+		// type二级索引删除
+		// String strPublishid = stub.getState(myPublish.getType());
+		// strPublishid = strPublishid.replaceAll(myOrder.getPublishid(), " ");
+		// String id = remove(strPublishid);
+		// stub.putState(myPublish.getType(), id);
+		// 添加Ａ的待分享，去除待确认
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		if (ServiceUser.getNeedSerShare().equals(" ") || ServiceUser.getNeedSerShare().equals("")) {
+			ServiceUser.setNeedSerShare(args[0].trim());
+		} else {
+			String serId = ServiceUser.getNeedSerShare() + "," + args[0].trim();
+			ServiceUser.setNeedSerShare(serId);
+		}
+		String needconfirm = ServiceUser.getNeedConfirm();
+		needconfirm = needconfirm.replaceAll(args[0].trim(), "");
+		String needconfirm1 = remove(needconfirm);
+		ServiceUser.setNeedConfirm(needconfirm1);
+		String strServiceUser = JSON.toJSONString(ServiceUser);
+		stub.putState(myOrder.getServiceuserid().trim(), strServiceUser);
+		// 添加B的待分享
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+
+		if (ApplyUser.getNeedAppshare().equals(" ") || ApplyUser.getNeedAppshare().equals("")) {
+			ApplyUser.setNeedAppshare(args[0].trim());
+		} else {
+			String needAppshare = ApplyUser.getNeedAppshare() + "," + args[0].trim();
+			ApplyUser.setNeedAppshare(needAppshare);
+		}
+		// 去除B的已申请
+		String myapply = ApplyUser.getMyapply();
+		myapply = myapply.replaceAll(args[0].trim(), " ");
+		String myapply1 = remove(myapply);
+		ApplyUser.setMyapply(myapply1);
+		String strApplyUser = JSON.toJSONString(ApplyUser);
+		stub.putState(myOrder.getApplyuserid().trim(), strApplyUser);
+		stub.Success("confirmsuccess");
+	}
+
+	// B当面向Ａ借东西
+	public void borrow(StarcodeStub stub, String[] args) {
+		String str = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		// 获得所需要押金
+		String strPublish = stub.getState(myOrder.getPublishid().trim());
+		Publish myPublish = JSON.parseObject(strPublish, Publish.class);
+		int needpoint = Integer.parseInt(myPublish.getDeposit());
+		// 获取A对象
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		// 获取B对象 H
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+		// 将B账户中的所需押金删除
+		if (Integer.parseInt(ApplyUser.getPoint()) >= needpoint) {
+			int applypoint = Integer.parseInt(ApplyUser.getPoint()) - needpoint;
+			ApplyUser.setPoint(applypoint + "");
+			// 设置ApplyUser的frozenPoint
+			int frozenPoint = Integer.parseInt(ApplyUser.getFrozenPoint()) + needpoint;
+			ApplyUser.setFrozenPoint(frozenPoint + "");
+
+			myOrder.setBegintime(args[1].trim());
+			String strMyorder = JSON.toJSONString(myOrder);
+			stub.putState(args[0].trim(), strMyorder);
+			String strApplyUser = JSON.toJSONString(ApplyUser);
+			stub.putState(myOrder.getApplyuserid().trim(), strApplyUser);
+			stub.Success("success");
+		} else {
+			stub.Error("pointNotEnough");
+		}
+	}
+
+	// B向A还东西
+	public void giveback(StarcodeStub stub, String[] args) throws ParseException {
+		// endtime
+		String str = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		myOrder.setEndtime(args[1].trim());
+		// 获取A对象
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		// 获取B对象
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+		// 获取B所需支付的积分
+		String getpublish = stub.getState(myOrder.getPublishid());
+		Publish myPublish = JSON.parseObject(getpublish, Publish.class);
+
+		// array[0]归还时间，myOrder.getBegintime()借出时间
+		// 将string类型转换成date类型，作差
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date returntime = dateFormat.parse(args[1].trim());
+		Date begintime = dateFormat.parse(myOrder.getBegintime());
+		long borrowtime = (returntime.getTime() - begintime.getTime()) / 1000 / 60 / 60 / 24 + 1;
+		int needpoint = (int) (borrowtime * Integer.parseInt(myPublish.getPrice()));
+		myOrder.setTxpoint(needpoint + "");
+		String strMyorder = JSON.toJSONString(myOrder);
+		stub.putState(args[0].trim(), strMyorder);
+
+		// A 添加记录为待结算 删除待分享
+		if (ServiceUser.getNeedSerPay().equals(" ") || ServiceUser.getNeedSerPay().equals("")) {
+			ServiceUser.setNeedSerPay(args[0].trim());
+		} else {
+			String needSerpay = ServiceUser.getNeedSerPay() + "," + args[0].trim();
+			ServiceUser.setNeedSerPay(needSerpay);
+		}
+
+		String needSerShare = ServiceUser.getNeedSerShare();
+		needSerShare = needSerShare.replaceAll(args[0].trim(), " ");
+		String needSerShare1 = remove(needSerShare);
+		ServiceUser.setNeedSerShare(needSerShare1);
+		String strServiceUser = JSON.toJSONString(ServiceUser);
+		stub.putState(myOrder.getServiceuserid().trim(), strServiceUser);
+		// B 添加记录为待结算 删除待分享
+		if (ApplyUser.getNeedAppPay().equals(" ") || ApplyUser.getNeedAppPay().equals("")) {
+			ApplyUser.setNeedAppPay(args[0].trim());
+		} else {
+			String needApppay = ApplyUser.getNeedAppPay() + "," + args[0].trim();
+			ApplyUser.setNeedAppPay(needApppay);
+		}
+		String needAppShare = ApplyUser.getNeedAppshare();
+		needAppShare = needAppShare.replaceAll(args[0].trim(), " ");
+		String needAppShare1 = remove(needAppShare);
+		ApplyUser.setNeedAppshare(needAppShare1);
+		String strApplyUser = JSON.toJSONString(ApplyUser);
+		stub.putState(myOrder.getApplyuserid().trim(), strApplyUser);
+		stub.Success("giveback");
+	}
+
+	// 结算
+	public void payMoney(StarcodeStub stub, String[] args) throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String str = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		int needpoint = Integer.parseInt(myOrder.getTxpoint());
+
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+
+		String getpublish = stub.getState(myOrder.getPublishid());
+		Publish myPublish = JSON.parseObject(getpublish, Publish.class);
+		if (Integer.parseInt(ApplyUser.getPoint()) >= needpoint) {// 积分够付
+			int ApplyUserpoint = Integer.parseInt(ApplyUser.getPoint());
+			ApplyUserpoint = ApplyUserpoint - needpoint;
+			int ServiceUserPoint = Integer.parseInt(ServiceUser.getPoint());
+			ServiceUserPoint = ServiceUserPoint + needpoint;
+			String strMyorder = JSON.toJSONString(myOrder);
+			stub.putState(args[0].trim(), strMyorder);
+			// 设置A的point 删除待结算 添加已完成
+			ServiceUser.setPoint(ServiceUserPoint + "");
+			// 删除待结算
+			String ServiceNeedPay = ServiceUser.getNeedSerPay();
+			ServiceNeedPay = ServiceNeedPay.replaceAll(args[0].trim(), " ");
+			String ServiceNeedPay1 = remove(ServiceNeedPay);
+			ServiceUser.setNeedSerPay(ServiceNeedPay1);
+			// 添加已完成
+
+			if (ServiceUser.getPublishfinish().equals(" ") || ServiceUser.getPublishfinish().equals("")) {
+				ServiceUser.setPublishfinish(args[0].trim());
+			} else {
+				String serfinish = ServiceUser.getPublishfinish() + "," + args[0].trim();
+				ServiceUser.setPublishfinish(serfinish);
+			}
+			String strServiceUser = JSON.toJSONString(ServiceUser);
+			stub.putState(myOrder.getServiceuserid(), strServiceUser);
+			// 改变B的 frozenPoint
+			int frozenPoint = Integer.parseInt(ApplyUser.getFrozenPoint()) - Integer.parseInt(myPublish.getDeposit());
+			// 设置B的point
+			ApplyUserpoint = ApplyUserpoint + Integer.parseInt(myPublish.getDeposit());
+			ApplyUser.setPoint(ApplyUserpoint + "");
+			ApplyUser.setFrozenPoint(frozenPoint + "");
+			// 删除待结算
+			String ApplyNeedPay = ApplyUser.getNeedAppPay();
+			ApplyNeedPay = ApplyNeedPay.replaceAll(args[0].trim(), " ");
+			String ApplyNeedPay1 = remove(ApplyNeedPay);
+			ApplyUser.setNeedAppPay(ApplyNeedPay1);
+			// 添加已经完成
+			if (ApplyUser.getApplyfinish().equals(" ") || ApplyUser.getApplyfinish().equals("")) {
+				ApplyUser.setApplyfinish(args[0].trim());
+			} else {
+				String appfinish = ApplyUser.getApplyfinish() + "," + args[0].trim();
+				ApplyUser.setApplyfinish(appfinish);
+			}
+			String strApplyUser = JSON.toJSONString(ApplyUser);
+			stub.putState(myOrder.getApplyuserid(), strApplyUser);
+			stub.Success("borrowsuccess");
+		} else {// 积分不够付
+			// // endTime向后推迟十天
+			// Date myEndtime = dateFormat.parse(myOrder.getEndtime());
+			// Calendar cal = Calendar.getInstance();
+			// cal.setTime(myEndtime);
+			// cal.add(Calendar.DATE, 10);
+			// Date DateEndReturntime = cal.getTime();
+			// String StrDateEndReturntime =
+			// dateFormat.format(DateEndReturntime);
+			// myOrder.setEndtime(StrDateEndReturntime);
+			// String strMyorder = JSON.toJSONString(myOrder);
+			// stub.putState(args[0].trim(), strMyorder);
+			stub.Success("delaysuccess");
+		}
+
+	}
+
+	// 处理评价
+	public void comment(StarcodeStub stub, String[] args) {
+		String str = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(str, Order.class);
+		// 获取A对象
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		// 获取B对象
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+
+		String userid = args[1].trim();
+		String applyuserid = myOrder.getApplyuserid().trim();
+		// String serviceuserid=myOrder.getServiceuserid();
+		if (userid.trim().equals(applyuserid.trim())) {
+			// 表面是申请者要评论，所以修改的是Serviceuser
+			myOrder.setServiceuserRating(args[2].trim());
+			myOrder.setServiceuserComment(args[3].trim());
+
+			String strMyorder = JSON.toJSONString(myOrder);
+			stub.putState(args[0].trim(), strMyorder);
+			int Servicetimes = Integer.parseInt(ServiceUser.getTimes());
+			double Serviceevaluation = Double.parseDouble(ServiceUser.getEvaluation());
+			double ServiceLastEvaluation = (Serviceevaluation * Servicetimes + Integer.parseInt(args[2].trim()))
+					/ (Servicetimes + 1);
+			ServiceUser.setTimes((Servicetimes + 1) + "");
+			ServiceUser.setEvaluation(ServiceLastEvaluation + "");
+			String strServiceUser = JSON.toJSONString(ServiceUser);
+			stub.putState(myOrder.getServiceuserid(), strServiceUser);
+			stub.Success("commentsuccess");
+		} else {// 修改ApplyUser
+			myOrder.setApplyuserRating(args[2].trim());
+			myOrder.setApplyuserComment(args[3].trim());
+			String strMyorder = JSON.toJSONString(myOrder);
+			stub.putState(args[0].trim(), strMyorder);
+			double Applyevaluation = Double.parseDouble(ApplyUser.getEvaluation());
+			int Applytimes = Integer.parseInt(ApplyUser.getTimes());
+			double ApplyLastEvaluation = (Applyevaluation * Applytimes + Integer.parseInt(args[2].trim()))
+					/ (Applytimes + 1);
+			ApplyUser.setTimes((Applytimes + 1) + "");
+			ApplyUser.setEvaluation(ApplyLastEvaluation + "");
+			String strApplyUser = JSON.toJSONString(ApplyUser);
+			stub.putState(myOrder.getApplyuserid(), strApplyUser);
+			stub.Success("commentsuccess");
+		}
+
+	}
+
+	// 处理付积分时积分不够后续处理(B向A还东西)
+	public void pointNotEnough(StarcodeStub stub, String[] args) throws ParseException {
+		//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String strOrder = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(strOrder, Order.class);
+		// 将当前日期和myOrder.getEstimateReturntime()比较
+		//String strEndtime = myOrder.getEndtime();
+		//String strNowtime = args[1].trim();
+		// Date estimateEndtime = dateFormat.parse(strEndtime);
+		// Date nowtime = dateFormat.parse(strNowtime);
+		// int i = estimateEndtime.compareTo(nowtime);
+		// if (i <= 0) {// 10的时间期限已到
+		// 获取A对象
+		String getServiceUser = stub.getState(myOrder.getServiceuserid());
+		User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+		// 获取B对象
+		String getApplyUser = stub.getState(myOrder.getApplyuserid());
+		User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+		// 获取B所需支付的积分
+		String getpublish = stub.getState(myOrder.getPublishid());
+		Publish myPublish = JSON.parseObject(getpublish, Publish.class);
+		//Date returntime = dateFormat.parse(myOrder.getEndtime());
+		//Date begintime = dateFormat.parse(myOrder.getBegintime());
+		//long borrowtime = (returntime.getTime() - begintime.getTime()) / 1000 / 60 / 60 / 24;
+		// int needpoint = (int) (borrowtime *
+		// Integer.parseInt(myPublish.getPrice()));
+		// int ApplyUserpoint = Integer.parseInt(ApplyUser.getPoint());
+		// if (needpoint <= ApplyUserpoint) {// 申请者积分够付
+		// // 申请者积分减 删除待结算 添加已经完成
+		// ApplyUserpoint = ApplyUserpoint -
+		// needpoint+Integer.parseInt(myPublish.getDeposit());
+		// ApplyUser.setPoint(ApplyUserpoint + "");
+		// String ApplyNeedPay = ApplyUser.getNeedAppPay();
+		// ApplyNeedPay = ApplyNeedPay.replaceAll(args[0].trim(), " ");
+		// String ApplyNeedPay1 = remove(ApplyNeedPay);
+		// ApplyUser.setNeedAppPay(ApplyNeedPay1);
+		// if (ApplyUser.getApplyfinish().equals(" ") ||
+		// ApplyUser.getApplyfinish().equals("")) {
+		// ApplyUser.setApplyfinish(args[0].trim());
+		// } else {
+		// String appfinish = ApplyUser.getApplyfinish() + "," + args[0].trim();
+		// ApplyUser.setApplyfinish(appfinish);
+		// }
+		// // 改变B的 frozenPoint
+		// int frozenPoint = Integer.parseInt(ApplyUser.getFrozenPoint()) -
+		// Integer.parseInt(myPublish.getDeposit());
+		// ApplyUser.setFrozenPoint(frozenPoint + "");
+		// String strApplyUser = JSON.toJSONString(ApplyUser);
+		// stub.putState(myOrder.getApplyuserid(), strApplyUser);
+		// // 借出者积分加 删除待结算， 添加已完成
+		// String ServiceNeedPay = ServiceUser.getNeedSerPay();
+		// ServiceNeedPay = ServiceNeedPay.replaceAll(args[0].trim(), " ");
+		// String ServiceNeedPay1 = remove(ServiceNeedPay);
+		// ServiceUser.setNeedSerPay(ServiceNeedPay1);
+		// if (ServiceUser.getPublishfinish().equals(" ") ||
+		// ServiceUser.getPublishfinish().equals("")) {
+		// ServiceUser.setPublishfinish(args[0].trim());
+		// } else {
+		// String serfinish = ServiceUser.getPublishfinish() + "," +
+		// args[0].trim();
+		// ServiceUser.setPublishfinish(serfinish);
+		// }
+		//
+		// int ServiceUserPoint = Integer.parseInt(ServiceUser.getPoint());
+		// ServiceUserPoint = ServiceUserPoint + needpoint;
+		// ServiceUser.setPoint(ServiceUserPoint + "");
+		// String strServiceUser = JSON.toJSONString(ServiceUser);
+		// stub.putState(myOrder.getServiceuserid(), strServiceUser);
+		// myOrder.setFlag("3");
+		// // 设置交易
+		// String strMyorder = JSON.toJSONString(myOrder);
+		// stub.putState(args[0].trim(), strMyorder);
+		// stub.Success("success");
+		// } else {// 申请者积分不够付，直接扣除押金
+		// 将押金转给借出者（获取押金）Ａ删除待结算， 添加已完成
+		String ServiceNeedPay = ServiceUser.getNeedSerPay();
+		ServiceNeedPay = ServiceNeedPay.replaceAll(args[0].trim(), " ");
+		String ServiceNeedPay1 = remove(ServiceNeedPay);
+		ServiceUser.setNeedSerPay(ServiceNeedPay1);
+		if (ServiceUser.getPublishfinish().equals(" ") || ServiceUser.getPublishfinish().equals("")) {
+			ServiceUser.setPublishfinish(args[0].trim());
+		} else {
+			String serfinish = ServiceUser.getPublishfinish() + "," + args[0].trim();
+			ServiceUser.setPublishfinish(serfinish);
+		}
+		int servicePoint = Integer.parseInt(ServiceUser.getPoint()) + Integer.parseInt(myPublish.getDeposit());
+		ServiceUser.setPoint(servicePoint + "");
+		String strUser = JSON.toJSONString(ServiceUser);
+		stub.putState(myOrder.getServiceuserid(), strUser);
+		String strMyorder = JSON.toJSONString(myOrder);
+		stub.putState(args[0].trim(), strMyorder);
+		myOrder.setFlag("3");
+		// B删除待分享 添加已经完成
+		String ApplyNeedPay = ApplyUser.getNeedAppPay();
+		ApplyNeedPay = ApplyNeedPay.replaceAll(args[0].trim(), " ");
+		String ApplyNeedPay1 = remove(ApplyNeedPay);
+		ApplyUser.setNeedAppPay(ApplyNeedPay1);
+		if (ApplyUser.getApplyfinish().equals(" ") || ApplyUser.getApplyfinish().equals("")) {
+			ApplyUser.setApplyfinish(args[0].trim());
+		} else {
+			String appfinish = ApplyUser.getApplyfinish() + "," + args[0].trim();
+			ApplyUser.setApplyfinish(appfinish);
+		}
+
+		// 改变B的 frozenPoint
+		int frozenPoint = Integer.parseInt(ApplyUser.getFrozenPoint()) - Integer.parseInt(myPublish.getDeposit());
+		ApplyUser.setFrozenPoint(frozenPoint + "");
+		String strApplyUser = JSON.toJSONString(ApplyUser);
+		stub.putState(myOrder.getApplyuserid(), strApplyUser);
+
+		stub.Success("success");
+	}
+
+	// 处理过期不还
+	public void overdueNotGiveback(StarcodeStub stub, String[] args) throws ParseException {
+		// 如果过期不还，直接将押金返回给借出者
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String strOrder = stub.getState(args[0].trim());
+		Order myOrder = JSON.parseObject(strOrder, Order.class);
+
+		// 将当前日期和myOrder.getEstimateReturntime()比较
+		String strEstimateReturntime = myOrder.getEstimateReturntime();
+		String strNowtime = args[1].trim();
+		Date estimateReturntime = dateFormat.parse(strEstimateReturntime);
+		Date nowtime = dateFormat.parse(strNowtime);
+		int i = estimateReturntime.compareTo(nowtime);
+		if (i <= 0) {
+			// 获取A对象
+			String getServiceUser = stub.getState(myOrder.getServiceuserid());
+			User ServiceUser = JSON.parseObject(getServiceUser, User.class);
+			// 获取B对象
+			String getApplyUser = stub.getState(myOrder.getApplyuserid());
+			User ApplyUser = JSON.parseObject(getApplyUser, User.class);
+			// 获取押金
+			String getpublish = stub.getState(myOrder.getPublishid());
+			Publish myPublish = JSON.parseObject(getpublish, Publish.class);
+			myPublish.getDeposit();
+			// 将押金转给借出者
+			int servicePoint = Integer.parseInt(ServiceUser.getPoint()) + Integer.parseInt(myPublish.getDeposit());
+			ServiceUser.setPoint(servicePoint + "");
+
+			// 改变B的 frozenPoint
+			int frozenPoint = Integer.parseInt(ApplyUser.getFrozenPoint()) - Integer.parseInt(myPublish.getDeposit());
+			ApplyUser.setFrozenPoint(frozenPoint + "");
+
+			// Ａ删除待分享， 添加已完成
+
+			String ServiceNeedSerShare = ServiceUser.getNeedSerShare();
+			ServiceNeedSerShare = ServiceNeedSerShare.replaceAll(args[0].trim(), " ");
+			String ServiceNeedSerShare1 = remove(ServiceNeedSerShare);
+			ServiceUser.setNeedSerShare(ServiceNeedSerShare1);
+			if (ServiceUser.getPublishfinish().equals(" ") || ServiceUser.getPublishfinish().equals("")) {
+				ServiceUser.setPublishfinish(args[0].trim());
+			} else {
+				String serfinish = ServiceUser.getPublishfinish() + "," + args[0].trim();
+				ServiceUser.setPublishfinish(serfinish);
+			}
+			String strUser = JSON.toJSONString(ServiceUser);
+			stub.putState(myOrder.getServiceuserid(), strUser);
+			myOrder.setFlag("2");
+			String strMyorder = JSON.toJSONString(myOrder);
+			stub.putState(args[0].trim(), strMyorder);
+			// B删除待结算 添加已经完成
+			String ApplyNeedAppshare = ApplyUser.getNeedAppshare();
+			ApplyNeedAppshare = ApplyNeedAppshare.replaceAll(args[0].trim(), " ");
+			String ApplyNeedAppshare1 = remove(ApplyNeedAppshare);
+			ApplyUser.setNeedAppshare(ApplyNeedAppshare1);
+			if (ApplyUser.getApplyfinish().equals(" ") || ApplyUser.getApplyfinish().equals("")) {
+				ApplyUser.setApplyfinish(args[0].trim());
+			} else {
+				String appfinish = ApplyUser.getApplyfinish() + "," + args[0].trim();
+				ApplyUser.setApplyfinish(appfinish);
+			}
+			String strApplyUser = JSON.toJSONString(ApplyUser);
+			stub.putState(myOrder.getApplyuserid(), strApplyUser);
+			stub.Success("success");
+		} else {// 未到交易截止日
+			stub.Error("fail");
+		}
+	}
+
+	// 添加我的收藏
+	public void myfavor(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		String myfavorid = myUser.getMyfavorid();
+		if (myfavorid.equals(" ") || myfavorid.equals("")) {
+			myUser.setMyfavorid(args[1].trim());
+		} else {
+			myfavorid = myfavorid + "," + args[1].trim();
+			myUser.setMyfavorid(myfavorid);
+		}
+
+		String laststrUser = JSON.toJSONString(myUser);
+		stub.putState(args[0].trim(), laststrUser);
+		stub.Success("success");
+	}
+
+	// 取消我的收藏
+	public void removeMyfavor(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		String myfavorid = myUser.getMyfavorid();
+		myfavorid = myfavorid.replaceAll(args[1].trim(), " ");
+		String myfavorid1 = remove(myfavorid);
+		myUser.setMyfavorid(myfavorid1);
+		String laststrUser = JSON.toJSONString(myUser);
+		stub.putState(args[0].trim(), laststrUser);
+		stub.Success("success");
+	}
+
+	// 展示我的主页
+	public void showMyHomepage(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		stub.Success(strUser);
+	}
+
+	// 通过publishID查询publish
+	public void queryByPublishID(StarcodeStub stub, String[] args) {
+		String strpublish = stub.getState(args[0].trim());
+		stub.Success(strpublish);
+	}
+
+	// 通过orderID查询order
+	public void queryByOrderID(StarcodeStub stub, String[] args) {
+		String strOrder = stub.getState(args[0].trim());
+		stub.Success(strOrder);
+	}
+
+	// 显示可借商品列表
+	public void canBorrowlist(StarcodeStub stub, String[] args) {
+		// 根据类型找到可借的商品列表
+		String strpublish = stub.getState(args[0].trim());
+
+		String[] array = strpublish.split(",");
+		String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+		for (int i = 0; i < array.length; i++) {
+			if (i > 0) {
+				str = str + ",";
+			}
+			str = str + stub.getState(array[i].trim());
+		}
+		str = str + "]}";
+		stub.Success(str);
+	}
+
+	// 筛选
+	public void screening(StarcodeStub stub, String[] args) throws ParseException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String firstTime = args[1].trim();
+		Number numprice1 = Float.parseFloat(args[2].trim()) * 100;
+		int price1 = numprice1.intValue() / 100;
+		Number numprice2 = Float.parseFloat(args[3].trim()) * 100;
+		int price2 = numprice2.intValue() / 100;
+		Number numdeposit1 = Float.parseFloat(args[4].trim()) * 100;
+		int deposit1 = numdeposit1.intValue() / 100;
+		Number numdeposit2 = Float.parseFloat(args[5].trim()) * 100;
+		int deposit2 = numdeposit2.intValue() / 100;
+		String strType = stub.getState(args[0].trim());
+		String[] publishArray = strType.split(",");
+		int number = 0;
+		String str = "{\"Number\":" + "\"" + number + "\"" + ",\"Records\":[";
+		for (int i = 0; i < publishArray.length; i++) {
+			// 根据publishId得到publish对象
+			String strPublish = stub.getState(publishArray[i].trim());
+			Publish myPublish = JSON.parseObject(strPublish, Publish.class);
+			Date myEndDate = dateFormat.parse(myPublish.getEndDate().trim());
+			// 日期比较
+			Date DatefirstTime = dateFormat.parse(firstTime);
+			int p = DatefirstTime.compareTo(myEndDate);
+			int price = Integer.parseInt(myPublish.getPrice());
+			int deposit = Integer.parseInt(myPublish.getDeposit());
+			if (price > price1 && price < price2 && p < 0 && deposit > deposit1 && deposit < deposit2) {
+				number++;
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(publishArray[i]);
+			}
+		}
+		str = str + "]}";
+		stub.Success(str);
+	}
+
+	// 显示
+	public void show(StarcodeStub stub, String[] args) {
+		String struser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(struser, User.class);
+		if (args[1].trim().equals("mypublish")) {
+			String[] array = myUser.getMypublish().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("needConfirm")) {
+			String[] array = myUser.getNeedConfirm().trim().split(",");
+
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("needSerShare")) {
+			String[] array = myUser.getNeedSerShare().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("needSerPay")) {
+			String[] array = myUser.getNeedSerPay().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("publishfinish")) {
+			String[] array = myUser.getPublishfinish().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("myapply")) {
+			String[] array = myUser.getMyapply().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("needAppshare")) {
+			String[] array = myUser.getNeedAppshare().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("needAppPay")) {
+			String[] array = myUser.getNeedAppPay().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+		if (args[1].trim().equals("applyfinish")) {
+			String[] array = myUser.getApplyfinish().trim().split(",");
+			String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+			for (int i = 0; i < array.length; i++) {
+				if (i > 0) {
+					str = str + ",";
+				}
+				str = str + stub.getState(array[i]);
+			}
+			str = str + "]}";
+			stub.Success(str);
+		}
+	}
+
+	// 显示我的收藏
+	public void showMyfavor(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		String myfavorid = myUser.getMyfavorid();
+		String[] array = myfavorid.split(",");
+		String str = "{\"Number\":" + "\"" + array.length + "\"" + ",\"Records\":[";
+		for (int i = 0; i < array.length; i++) {
+			if (i > 0) {
+				str = str + ",";
+			}
+			str = str + stub.getState(array[i]);
+		}
+		str = str + "]}";
+		stub.Success(str);
+	}
+
+	// 修改名字
+	public void modifyName(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		myUser.setName(args[1].trim());
+		String strmyuser = JSON.toJSONString(myUser);
+		stub.putState(args[0].trim(), strmyuser);
+	}
+
+	// 修改微信号
+	public void modifyWechat(StarcodeStub stub, String[] args) {
+		String strUser = stub.getState(args[0].trim());
+		User myUser = JSON.parseObject(strUser, User.class);
+		myUser.setWechat(args[1].trim());
+		String strmyuser = JSON.toJSONString(myUser);
+		stub.putState(args[0].trim(), strmyuser);
+	}
+
+	public void invoke(StarcodeStub stub, String[] args) {
+
+		System.out.println("22333:     " + args[0]);
+		stub.putState(args[0].trim(), args[1].trim());
+	}
+
+	public void query(StarcodeStub stub, String[] args) {
+
+		System.out.println(args);
+		System.out.println(stub.getState("a"));
+		stub.getState("b");
+
+	}
+
+	public void Invoke(StarcodeStub stub, String function, String[] args) {
+		System.out.println("received successfully" + function);
+		if (function.equals("invoke")) {
+			invoke(stub, args);
+		} else if (function.equals("query")) {
+			query(stub, args);
+		} else if (function.equals("init")) {
+			init(stub, args);
+		} else if (function.equals("publishgoods")) {
+			publishgoods(stub, args);
+		} else if (function.equals("applyBorrow")) {
+			applyBorrow(stub, args);
+		} else if (function.equals("confirmBorrow")) {
+			confirmBorrow(stub, args);
+		} else if (function.equals("borrow")) {
+			borrow(stub, args);
+		} else if (function.equals("giveback")) {
+			try {
+				giveback(stub, args);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (function.equals("canBorrowlist")) {
+			canBorrowlist(stub, args);
+		} else if (function.equals("myfavor")) {
+			myfavor(stub, args);
+		} else if (function.equals("removeMyfavor")) {
+			removeMyfavor(stub, args);
+		} else if (function.equals("overdueNotGiveback")) {
+			try {
+				overdueNotGiveback(stub, args);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (function.equals("pointNotEnough")) {
+			try {
+				pointNotEnough(stub, args);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (function.equals("showMyfavor")) {
+			showMyfavor(stub, args);
+		} else if (function.equals("showMyHomepage")) {
+			showMyHomepage(stub, args);
+		} else if (function.equals("show")) {
+			show(stub, args);
+		} else if (function.equals("comment")) {
+			comment(stub, args);
+		} else if (function.equals("deleteUnPublish")) {
+			deleteUnPublish(stub, args);
+		} else if (function.equals("screening")) {
+			try {
+				screening(stub, args);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (function.equals("login")) {
+			login(stub, args);
+		} else if (function.equals("queryByPublishID")) {
+			queryByPublishID(stub, args);
+		} else if (function.equals("refuseOrder")) {
+			refuseOrder(stub, args);
+		} else if (function.equals("modifyName")) {
+			modifyName(stub, args);
+		} else if (function.equals("modifyWechat")) {
+			modifyWechat(stub, args);
+		} else if (function.equals("queryByOrderID")) {
+			queryByOrderID(stub, args);
+		} else if (function.equals("payMoney")) {
+			try {
+				payMoney(stub, args);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+
+		Starcode starcode = new Starcode();
+		starcode.start();
+		starcode.blockUntilShutdown();
+	}
+}
